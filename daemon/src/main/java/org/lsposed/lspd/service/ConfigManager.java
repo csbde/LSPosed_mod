@@ -241,6 +241,7 @@ public class ConfigManager {
 
         if (value == null) {
             value = true;
+            updateModulePrefs("lspd", 0, "config", "enable_cli", value);
         }
 
         bEnableCli = value != null && (boolean) value;
@@ -248,6 +249,7 @@ public class ConfigManager {
         value = config.get("cli_session_timeout");
         if (value == null) {
             value = -1;
+            updateModulePrefs("lspd", 0, "config", "cli_session_timeout", value);
         }
         iSessionTimeout = value == null ? -1 : (int) value;
 
