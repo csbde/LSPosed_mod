@@ -238,9 +238,17 @@ public class ConfigManager {
         autoAddShortcut = (boolean) value;
 
         value = config.get("enable_cli");
+
+        if (value == null) {
+            value = true;
+        }
+
         bEnableCli = value != null && (boolean) value;
 
         value = config.get("cli_session_timeout");
+        if (value == null) {
+            value = -1;
+        }
         iSessionTimeout = value == null ? -1 : (int) value;
 
         // Don't migrate to ConfigFileManager, as XSharedPreferences will be restored soon
